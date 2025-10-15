@@ -1,0 +1,23 @@
+version: "3.0"
+intents:
+  - greet
+  - goodbye
+  - ask_signup
+  - suggestion
+  - create_profile
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I help you with onboarding today?"
+  utter_goodbye:
+    - text: "Goodbye!"
+
+slots:
+  language:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+actions:
+  - action_call_rag

@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  rag_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.model
+    environment:
+      MODEL_PATH: "bigscience/bloom-560m"
+      RAG_INDEX_PATH: /app/fine_tuning/data/rag_index
+      EMBED_MODEL: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+      QUANTIZE: "4bit"
+      PEFT_ADAPTER_PATH: "/app/fine_tuning/models/bloom-560m-peft"
+      FORCE_GENERATE: "0"
+      HF_HOME: /tmp/hf_cache
+      TRANSFORMERS_CACHE: /tmp/hf_cache
+      HF_DATASETS_CACHE: /tmp/hf_cache
+      SENTENCE_TRANSFORMERS_HOME: /tmp/hf_cache
+      TORCH_HOME: /tmp/hf_cache/torch
+      HF_HUB_DISABLE_XET: "1"
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+  # RAG_API_KEY is provided as a Docker secret at /run/secrets/rag_api_key
+    volumes:
+      - ./:/app
+    tmpfs:
+      - /tmp/hf_cache:exec,mode=1777
+    runtime: nvidia
+    command: uvicorn fine_tuning.rag.rag_server:app --host 0.0.0.0 --port 8000
+    # internal only: not published to host. Other services can reach it at rag_server:8000
+    secrets:
+      - rag_api_key
+      - rag_api_keys
+
+  onboarding_api:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    environment:
+      SUMMIT_MODEL_SERVICE_URL: http://rag_server:8000/generate
+  # RAG_API_KEY is provided as a Docker secret at /run/secrets/rag_api_key
+    command: uvicorn service.app:app --host 0.0.0.0 --port 8000
+    depends_on:
+      - rag_server
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+    secrets:
+      - rag_api_key
+      - rag_api_keys
+
+  rasa_action_server:
+    build:
+      context: ./rasa/actions_server
+      dockerfile: Dockerfile
+    environment:
+      RAG_URL: http://rag_server:8000/generate
+  # RAG_API_KEY is provided as a Docker secret at /run/secrets/rag_api_key
+      ACTION_PEFT_ADAPTER: "/app/fine_tuning/models/bloom-560m-peft"
+    depends_on:
+      - rag_server
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./rasa:/app/rasa
+    secrets:
+      - rag_api_key
+      - rag_api_keys
+
+  rasa:
+    image: rasa/rasa:3.6.0
+    command: run --model models --enable-api --cors "*"
+    volumes:
+      - ./rasa:/app
+    depends_on:
+      - rasa_action_server
+
+secrets:
+  rag_api_key:
+    file: ./secrets/rag_api_key
+  rag_api_keys:
+    file: ./secrets/rag_api_keys

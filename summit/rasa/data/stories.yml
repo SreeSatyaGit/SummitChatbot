@@ -1,0 +1,16 @@
+version: "3.0"
+stories:
+- story: suggestion flow
+  steps:
+  - intent: suggestion
+  - action: action_call_rag
+
+- story: create profile flow
+  steps:
+  - intent: create_profile
+  - action: action_call_rag
+
+- story: ask signup flow
+  steps:
+  - intent: ask_signup
+  - action: action_call_rag

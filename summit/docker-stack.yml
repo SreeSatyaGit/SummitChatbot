@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  rag_server:
+    image: "${REGISTRY_PREFIX:-your-registry/}summit-rag_server:latest"
+    environment:
+      MODEL_PATH: "bigscience/bloom-560m"
+      RAG_INDEX_PATH: /app/fine_tuning/data/rag_index
+      EMBED_MODEL: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+      QUANTIZE: "4bit"
+      PEFT_ADAPTER_PATH: "/app/fine_tuning/models/bloom-560m-peft"
+      FORCE_GENERATE: "0"
+      HF_HOME: /tmp/hf_cache
+      TRANSFORMERS_CACHE: /tmp/hf_cache
+      HF_DATASETS_CACHE: /tmp/hf_cache
+      SENTENCE_TRANSFORMERS_HOME: /tmp/hf_cache
+      TORCH_HOME: /tmp/hf_cache/torch
+      HF_HUB_DISABLE_XET: "1"
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+    secrets:
+      - rag_api_key
+      - rag_api_keys
+    volumes:
+      - ./:/app
+    tmpfs:
+      - /tmp/hf_cache:exec,mode=1777
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+      restart_policy:
+        condition: on-failure
+
+  onboarding_api:
+    image: "${REGISTRY_PREFIX:-your-registry/}summit-onboarding_api:latest"
+    environment:
+      SUMMIT_MODEL_SERVICE_URL: http://rag_server:8000/generate
+    secrets:
+      - rag_api_key
+      - rag_api_keys
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  rasa_action_server:
+    image: "${REGISTRY_PREFIX:-your-registry/}summit-rasa_action_server:latest"
+    environment:
+      RAG_URL: http://rag_server:8000/generate
+      ACTION_PEFT_ADAPTER: "/app/fine_tuning/models/bloom-560m-peft"
+    secrets:
+      - rag_api_key
+      - rag_api_keys
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./rasa:/app/rasa
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  rasa:
+    image: rasa/rasa:3.6.0
+    command: run --model models --enable-api --cors "*"
+    volumes:
+      - ./rasa:/app
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+secrets:
+  rag_api_key:
+    external: true
+  rag_api_keys:
+    external: true

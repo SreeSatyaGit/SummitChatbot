@@ -1,0 +1,29 @@
+# minimal NLU training data
+version: "3.0"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey there
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+
+- intent: ask_signup
+  examples: |
+    - How do I sign up for the summit?
+    - Where can I register?
+
+- intent: suggestion
+  examples: |
+    - What should I write in my profile?
+    - Any tips for my onboarding profile?
+    - Give me suggestions for my profile
+
+- intent: create_profile
+  examples: |
+    - Can you create my profile?
+    - Draft a short bio for my profile

@@ -1,0 +1,27 @@
+# VCS / caches / notebooks
+.git
+**/__pycache__/
+**/*.pyc
+**/.ipynb_checkpoints
+
+# Python & node
+.venv
+venv
+env
+node_modules
+
+# Big data/models/caches
+fine_tuning/models/
+fine_tuning/data/*
+!fine_tuning/data/rag_index/**   # keep ONLY the FAISS index if you still copy it
+.root/
+.cache/
+.huggingface/
+hf_cache/
+**/*.safetensors
+**/*.bin
+**/*.pt
+**/*.ckpt
+**/*.tar
+**/*.zip
+**/*.gz

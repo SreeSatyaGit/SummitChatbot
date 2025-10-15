@@ -1,0 +1,114 @@
+# Enhanced Training Data for Summit Onboarding Assistant
+
+## Multilingual Examples
+
+### English Examples
+How do I sign up for the summit? You can sign up by visiting our registration page and filling out the required information including your name, email, and academic details.
+
+What should I include in my profile? Include your academic achievements, athletic accomplishments, career goals, and personal story that showcases your unique journey.
+
+Can you help me create my profile? I'd be happy to help you create a comprehensive profile. Let's start with your basic information and build from there.
+
+### Spanish Examples
+¿Cómo me inscribo en la cumbre? Puedes inscribirte visitando nuestra página de registro y completando la información requerida incluyendo tu nombre, email y detalles académicos.
+
+¿Qué debo incluir en mi perfil? Incluye tus logros académicos, logros atléticos, metas profesionales y tu historia personal que muestre tu viaje único.
+
+¿Puedes ayudarme a crear mi perfil? Estaré encantado de ayudarte a crear un perfil completo. Empecemos con tu información básica.
+
+### French Examples
+Comment puis-je m'inscrire au sommet ? Vous pouvez vous inscrire en visitant notre page d'inscription et en remplissant les informations requises incluant votre nom, email et détails académiques.
+
+Que dois-je inclure dans mon profil ? Incluez vos réalisations académiques, accomplissements athlétiques, objectifs de carrière et votre histoire personnelle qui montre votre parcours unique.
+
+Pouvez-vous m'aider à créer mon profil ? Je serais ravi de vous aider à créer un profil complet. Commençons par vos informations de base.
+
+### Portuguese Examples
+Como me inscrevo para a cúpula? Você pode se inscrever visitando nossa página de registro e preenchendo as informações necessárias incluindo seu nome, email e detalhes acadêmicos.
+
+O que devo incluir no meu perfil? Inclua suas conquistas acadêmicas, realizações atléticas, objetivos de carreira e sua história pessoal que mostre sua jornada única.
+
+Você pode me ajudar a criar meu perfil? Ficaria feliz em ajudá-lo a criar um perfil completo. Vamos começar com suas informações básicas.
+
+## Profile Creation Examples
+
+### Academic Profile
+I'm a computer science major with a 3.8 GPA. I've been on the Dean's List for three semesters and completed a research project on machine learning applications in healthcare. I'm also the president of the Computer Science Club and have tutored fellow students in programming.
+
+### Athletic Profile
+I'm a varsity basketball player and team captain. I've led my team to two conference championships and was named MVP in my junior year. I also run NIL tournaments and have experience coaching younger players. Sports have taught me leadership, teamwork, and perseverance.
+
+### Career Profile
+I'm passionate about technology and entrepreneurship. I founded a startup that develops educational apps for student-athletes and have interned at two tech companies. My goal is to work in product management and eventually start my own company that bridges sports and technology.
+
+### Personal Story Examples
+I grew up in a small town where opportunities were limited, but my parents always encouraged me to dream big. Through hard work and determination, I earned a scholarship to college and became the first in my family to attend university. This experience has shaped my commitment to helping others achieve their goals.
+
+## Onboarding Process Examples
+
+### Registration Steps
+1. Visit the summit registration page
+2. Create your account with email and password
+3. Complete your profile with academic and athletic information
+4. Upload required documents (transcript, athletic records)
+5. Submit your application for review
+
+### Profile Completion Tips
+- Be authentic and honest in your responses
+- Highlight your unique experiences and achievements
+- Use specific examples and metrics when possible
+- Show your personality while maintaining professionalism
+- Proofread everything before submitting
+
+### Common Questions and Answers
+Q: What if I don't have all the required information?
+A: You can save your progress and return later to complete your profile. We recommend gathering all necessary documents before starting.
+
+Q: How long does the review process take?
+A: Applications are typically reviewed within 5-7 business days. You'll receive an email notification once your application is processed.
+
+Q: Can I edit my profile after submission?
+A: Yes, you can make updates to your profile up to 48 hours before the summit begins.
+
+## Multilingual Response Patterns
+
+### Greeting Responses
+Hello! I'm Summit, your onboarding assistant. How can I help you get started today?
+
+¡Hola! Soy Summit, tu asistente de incorporación. ¿Cómo puedo ayudarte a comenzar hoy?
+
+Bonjour! Je suis Summit, votre assistant d'intégration. Comment puis-je vous aider à commencer aujourd'hui?
+
+Olá! Eu sou Summit, seu assistente de integração. Como posso ajudá-lo a começar hoje?
+
+### Helpful Suggestions
+Here are some suggestions to improve your profile:
+1. Add specific examples of your leadership experience
+2. Include quantifiable achievements with numbers
+3. Highlight your unique background and perspective
+4. Show how you've overcome challenges
+
+### Profile Review Feedback
+Your profile looks great! I noticed a few areas where you could add more detail:
+- Consider expanding on your research experience
+- Add more specific examples of your athletic achievements
+- Include information about your career goals and aspirations
+
+## Technical Support Examples
+
+### Account Issues
+If you're having trouble logging in, try resetting your password using the "Forgot Password" link on the login page. Make sure you're using the same email address you registered with.
+
+### Document Upload
+When uploading documents, ensure they are in PDF format and under 10MB. If you're having trouble uploading, try using a different browser or clearing your cache.
+
+### Profile Completion
+Your profile is 75% complete. To finish, you still need to add your athletic achievements and upload your transcript. Would you like help with any of these sections?
+
+## Success Stories
+"I was nervous about the application process, but Summit made it so easy. The step-by-step guidance helped me create a profile that truly represented who I am." - Sarah, Computer Science Major
+
+"El proceso fue muy claro y fácil de seguir. Summit me ayudó a destacar mis logros de una manera profesional." - Carlos, Engineering Student
+
+"Le processus était très intuitif. Summit m'a aidé à créer un profil qui reflète vraiment mes accomplissements." - Marie, Business Student
+

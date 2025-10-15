@@ -1,0 +1,14 @@
+language: en
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: DIETClassifier
+- name: EntitySynonymMapper
+- name: ResponseSelector
+
+policies:
+- name: RulePolicy
+- name: MemoizationPolicy
+assistant_id: 20250912-164959-cold-equator
